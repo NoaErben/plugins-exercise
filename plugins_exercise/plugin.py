@@ -1,6 +1,5 @@
 from abc import abstractmethod, ABC
 
-
 class Plugin(ABC):
     @abstractmethod
     def connectivity_test(self):
