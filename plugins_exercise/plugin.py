@@ -1,6 +1,7 @@
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 
-class Plugin:
+
+class Plugin(ABC):
     @abstractmethod
     def connectivity_test(self):
         raise NotImplementedError()
@@ -10,5 +11,9 @@ class Plugin:
         raise NotImplementedError()
 
     def run(self):
-        if self.connectivity_test():
-            self.collect()
+        try:
+            if self.connectivity_test():
+                self.collect()
+
+        except Exception:
+            print("Ended with error")
